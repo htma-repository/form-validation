@@ -5,7 +5,7 @@ import useBasicInput from "../hooks/use-BasicInput";
 const nameValidate = (value) => value.trim() !== "";
 const emailValidate = (value) => value.trim() !== "" && value.includes("@");
 
-const BasicForm = (props) => {
+const BasicForm = () => {
   const {
     inputForm: firstNameInput,
     inputIsValid: firstNameIsValid,
@@ -42,7 +42,7 @@ const BasicForm = (props) => {
   const formSubmitHandler = (event) => {
     event.preventDefault();
 
-    if (!firstNameInput && !lastNameInput && !emailInput) {
+    if (!firstNameInput || !lastNameInput || !emailInput) {
       return;
     }
 
