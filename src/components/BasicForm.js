@@ -1,6 +1,7 @@
 import React from "react";
 
 import useBasicInput from "../hooks/use-BasicInput";
+import InputForm from "./InputForm";
 
 const nameValidate = (value) => value.trim() !== "";
 const emailValidate = (value) => value.trim() !== "" && value.includes("@");
@@ -65,10 +66,10 @@ const BasicForm = () => {
     <form onSubmit={formSubmitHandler}>
       <div className="control-group">
         <div className={formClass(firstNameIsInvalid)}>
-          <label htmlFor="first-name">First Name</label>
-          <input
+          <InputForm
+            children="First Name"
             type="text"
-            id="first-name"
+            name="first-name"
             onChange={firstNameInputHandler}
             onBlur={firstNameBlurHandler}
             value={firstNameInput}
@@ -79,10 +80,10 @@ const BasicForm = () => {
           )}
         </div>
         <div className={formClass(lastNameIsInvalid)}>
-          <label htmlFor="last-name">Last Name</label>
-          <input
+          <InputForm
+            children="Last Name"
             type="text"
-            id="last-name"
+            name="last-name"
             onChange={lastNameInputHandler}
             onBlur={lastNameBlurHandler}
             value={lastNameInput}
@@ -91,10 +92,10 @@ const BasicForm = () => {
         </div>
       </div>
       <div className={formClass(emailIsInvalid)}>
-        <label htmlFor="email">E-Mail Address</label>
-        <input
+        <InputForm
+          children="Email"
           type="email"
-          id="email"
+          name="email"
           onChange={emailInputHandler}
           onBlur={emailBlurHandler}
           value={emailInput}
